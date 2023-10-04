@@ -1,0 +1,25 @@
+{
+  "name": "javascript2-ca",
+  "version": "0.0.1",
+  "description": "social media platform for noroff students and staff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hah98/JavaScript2-CA.git"
+  },
+  "keywords": [
+    "javascript",
+    "bootstrap",
+    "api",
+    "css"
+  ],
+  "author": "hibo h <hibo-1998@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hah98/JavaScript2-CA/issues"
+  },
+  "homepage": "https://github.com/hah98/JavaScript2-CA#readme"
+}
