@@ -1,5 +1,3 @@
-import * as constants from "./api/constants.mjs";
+import { setRegisterFormListener } from "./handlers/register.mjs";
 
-console.log(constants.API_SOCIAL_URL);
-
-console.log("This works");
+setRegisterFormListener();

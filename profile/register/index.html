@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff Socials / Register</title>
+    <script type="module" src="./src/scss/js/index.mjs"></script>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+  </head>
+  <body style="background-color: rgb(17, 14, 14)" class="text-light">
+    <header>
+      <!-- test navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+          <a href="/index.html" class="navbar-brand">NOROFF SOCIALS</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-expanded="true"
+            aria-label="toggle navigation"
+          >
+            <div class="navbar-toggler-icon"></div>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  href="./index.html"
+                  class="nav-link active"
+                  aria-current="Page"
+                  >Register</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="./profile/login/index.html" class="nav-link">Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Profile</a>
+              </li>
+              <form class="form-inline my-2 my-lg-0">
+                <input
+                  class="form-control mr-sm-2"
+                  type="text"
+                  placeholder="Search"
+                />
+                <button class="btn btn-danger my-1 my-sm-1" type="submit">
+                  Search
+                </button>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1 class="text-light">THIS IS WHERE YOU REGISTER</h1>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6">
+            <form id="registerForm" method="post" action="/auth/register">
+              <div class="form-group mb-3">
+                <label for=""> Name</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  required
+                  pattern="^[\w]+$"
+                  title="Username can only contain lowercase, uppercase letters, number and underscrore. Example: Hibo_1998"
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for=""> Email</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  required
+                  pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                  title="Only emails with @(stud)noroff.no email can register an account."
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for=""> Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  required
+                  minlength="8"
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for=""> banner</label>
+                <input class="form-control" type="url" name="banner" />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for=""> Avatar</label>
+                <input class="form-control" type="url" name="avatar" />
+              </div>
+              <!--  -->
+
+              <button class="btn btn-danger">Register</button>
+              <!-- {
+  "name": "epaCivkoHUNzpqgYhloG",
+  "email": "user@example.com",
+  "banner": "string",
+  "avatar": "string",
+  "password": "stringst"
+} -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
