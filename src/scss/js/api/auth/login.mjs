@@ -23,6 +23,10 @@ export async function login(profile) {
   storage.save("profile", user);
 
   alert("You are now Logged In");
+
+  
+  // Redirect to the /profile/posts/index.html page
+  window.location.href = "/profile/posts/index.html";
 }
 
 
