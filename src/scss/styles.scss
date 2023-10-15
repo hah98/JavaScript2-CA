@@ -1,2 +1,8 @@
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.form-control:disabled {
+    background-color: var(--bs-secondary-bg);
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -1,11 +1,3 @@
-/* export async function getPosts() {
-
-}
-
-export async function getpost(id){
-
-} */
-
 import { API_SOCIAL_URL } from "../constants.mjs";
 
 import { authFetch } from "../authFetch.mjs";

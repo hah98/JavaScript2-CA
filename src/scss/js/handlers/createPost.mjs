@@ -10,6 +10,8 @@ export function setCreateFormListener() {
       const form = event.target;
       const formData = new FormData(form);
       const post = Object.fromEntries(formData.entries());
+
+      post.tags = post.tags.split(",").map((tag) => tag.trim());
       /* console.log(profile); */
 
       // Send it to the API

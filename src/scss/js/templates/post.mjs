@@ -7,11 +7,12 @@ export function postTemplateB(postData) {
   post.classList.add("post");
   post.innerText = postData.title;
 
-  // button for later?
-  /* const button = createElement("button");
-  post.append(button);
-
-  button.addEventListener("click", () => console.log(postData)); */
+  if (postData.media) {
+    const img = document.createElement("img");
+    img.src = postData.media;
+    img.alt = ` Image for this post:  ${postData.title}`;
+    post.append(img);
+  }
 
   return post;
 }

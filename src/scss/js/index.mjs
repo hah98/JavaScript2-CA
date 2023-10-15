@@ -15,12 +15,15 @@ if (path === "/profile/register/index.html") {
   listeners.setCreateFormListener();
 } else if (path === "/profile/post/edit/index.html") {
   listeners.setUpdateFormListener();
+} else if (path === "/profile/edit/index.html") {
+  listeners.setUpdateProfileFormListener();
 }
 
+// testing function //
 /* async function testTemplate() {
   const posts = await postMethods.getPosts();
   const post = posts[5];
-  const container = document.querySelector("#post");
+  const container = document.querySelector("#posts");
   templates.renderPostTemplates(posts, container);
 }
 
