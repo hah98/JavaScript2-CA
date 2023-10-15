@@ -11855,5 +11855,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.form-control:disabled {
+  background-color: var(--bs-secondary-bg);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 /*# sourceMappingURL=styles.css.map */
