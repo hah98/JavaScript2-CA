@@ -1,0 +1,22 @@
+$blue: #104ba3;
+$indigo: #6c19f1;
+$purple: #4f2f89;
+$pink: #d36ca0;
+$red: #be192a;
+$orange: #ed7512;
+$yellow: #fdc51c;
+$green: #469f79;
+$teal: #23c292;
+$cyan: #2ed2f2;
+
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+// scss-docs-end spacer-variables-maps

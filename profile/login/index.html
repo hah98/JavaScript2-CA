@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff Socials / LOGIN</title>
+    <script type="module" src="../../src/scss/js/index.mjs" defer></script>
+    <link rel="stylesheet" href="../../dist/css/styles.css" />
+  </head>
+  <body style="background-color: rgb(240, 240, 240)">
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar" style="background-color: blue;">
+        <div class="container">
+          <a href="../../index.html">
+          <img src="../../Images/noroff_socials_logo-removebg-preview.png" width="180px" height="180px" alt="noroff socials logo">
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-expanded="true"
+            aria-label="toggle navigation"
+          >
+            <div class="navbar-toggler-icon"></div>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                href="./index.html"
+                class="nav-link active text-light"
+                aria-current="Page"
+                >Login</a
+              >
+              </li>
+              <li class="nav-item">
+                <a href="../register/index.html" class="nav-link text-light">Register</a>
+              </li>
+             <form class="form-inline my- my-lg-0">
+                <input
+                  class="form-control mr-sm-2"
+                  type="text"
+                  placeholder="Search"
+                />
+                <button class="btn btn-light  my-1 my-sm-1" type="submit">Submit</button>
+  
+                  
+                </button>
+              </form> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+      </header>
+   
+   
+   
+    <main>
+      <h1 class="text-center mt-5">
+        Welcome back 
+      </h1>
+    <h2 class="text-center mt-3">Login to check up on your Noroff friends!</h2>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6">
+            <form id="loginForm">
+              <div class="form-group mb-3">
+                <label for=""> Email</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  required
+                  pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                  title="Only emails with @(stud)noroff.no email can login an account."
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label for=""> Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  required
+                  minlength="8"
+                />
+              </div>
+
+              <!--  -->
+
+              <button class="btn text-light" style="background-color: blue">Login</button>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
