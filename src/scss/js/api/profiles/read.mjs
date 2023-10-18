@@ -2,7 +2,7 @@ import { API_SOCIAL_URL } from "../constants.mjs";
 
 import { authFetch } from "../authFetch.mjs";
 
-const action = "/Profiles";
+const action = "/profiles";
 /* const method = "delete"; */
 
 export async function getProfiles() {
