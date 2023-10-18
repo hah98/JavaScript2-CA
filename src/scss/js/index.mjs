@@ -19,7 +19,7 @@ if (path === "/profile/register/index.html") {
 // testing function //
 async function testTemplate() {
   const posts = await postMethods.getPosts();
-  const post = posts[5];
+  const post = posts[5]; 
   const container = document.querySelector("#posts");
   templates.renderPostTemplates(posts, container);
 }

@@ -18,15 +18,16 @@ export async function login(profile) {
 
   const { accessToken, ...user } = await response.json();
 
+  /*  localStorage.setItem("token", accessToken);
+  localStorage.setItem("profile", user); */
+
   storage.save("token", accessToken);
+
 
   storage.save("profile", user);
 
   alert("You are now Logged In");
 
-  
   // Redirect to the /profile/posts/index.html page
   window.location.href = "/profile/posts/index.html";
 }
-
-
