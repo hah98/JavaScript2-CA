@@ -1,3 +1,90 @@
+/* My Costume styles */
+
+/* All posts page  */
+#posts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 300px));
+  gap: 50px;
+  padding: 1em;
+  width: 100vw;
+  justify-content: center;
+  margin-top: -25px;
+}
+
+.post-card {
+  background-color: #cbd8fb;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+}
+
+img.img-fluid {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* One specific post page  */
+
+/* #post {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 300px));
+  gap: 50px;
+  padding: 1em;
+  width: 100vw;
+  justify-content: center;
+  margin-top: -25px;
+}
+
+.post-card-1 {
+  margin-top: 30px;
+  justify-content: center;
+  background-color: #cbd8fb;
+  width: 100vw;
+  height: auto;
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+img.img-fluid-1 {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.title-1 {
+  margin-bottom: 10px;
+  
+  justify-content: center;
+}
+
+.body-1 {
+  margin-bottom: 10px;
+  
+  justify-content: center;
+}
+
+.tags {
+  display: block;
+  font-size: 100px;
+} */
+
+/*  */
+
 $blue: #104ba3;
 $indigo: #6c19f1;
 $purple: #4f2f89;
