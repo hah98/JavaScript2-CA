@@ -1,25 +1,31 @@
 @charset "UTF-8";
 /* My Costume styles */
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
+* {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
 /* All posts page  */
 #posts {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 300px));
-  gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusted for responsiveness */
+  gap: 20px; /* Adjusted for better spacing */
   padding: 1em;
-  width: 100vw;
   justify-content: center;
-  margin-top: -25px;
+  max-width: 1200px; /* Adjusted max-width for better readability */
+  margin: 0 auto; /* Center the posts horizontally */
 }
 
-.post-card {
+.posts-card {
   background-color: #cbd8fb;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  width: 100%; /* Make each card take full width */
 }
 
-.post-card:hover {
+.posts-card:hover {
   transform: scale(1.05);
 }
 
@@ -36,51 +42,73 @@ img.img-fluid {
 }
 
 /* One specific post page  */
-/* #post {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 300px));
+#post {
+  display: flex;
   gap: 50px;
   padding: 1em;
   width: 100vw;
   justify-content: center;
-  margin-top: -25px;
 }
 
-.post-card-1 {
-  margin-top: 30px;
-  justify-content: center;
+.post-post {
   background-color: #cbd8fb;
-  width: 100vw;
-  height: auto;
-  padding: 60px;
+  margin-top: 50px;
+  width: 80vw;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
 }
 
 img.img-fluid-1 {
-  height: 200px;
-  width: 100%;
+  height: 40vh;
+  width: 80%; /* Adjusted to 100% for full width */
   object-fit: cover;
   border-radius: 8px 8px 0 0;
+  display: block; /* Ensure it's a block-level element */
+  margin: 0 auto; /* Center the image */
 }
 
-.title-1 {
-  margin-bottom: 10px;
-
+.title-post {
+  margin-bottom: 30px;
+  display: flex;
   justify-content: center;
 }
 
-.body-1 {
-  margin-bottom: 10px;
-
-  justify-content: center;
+.body {
+  display: block;
+  margin: 0 auto;
 }
 
 .tags {
   display: block;
-  font-size: 100px;
-} */
+  font-size: 16px;
+}
+
+.author {
+  display: block;
+  font-size: 16px;
+}
+
+.body,
+.created,
+.updated,
+.author,
+.post-id,
+.tags {
+  text-align: center; /* Center the text */
+  margin: 0; /* Remove default margin */
+}
+
+#createPost1 {
+  color: #000;
+}
+
+.logo {
+  height: 120px;
+  width: 120px;
+}
+
 /*  */
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
