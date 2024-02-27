@@ -1,13 +1,13 @@
 // posts.mjs
 export function postTemplateB(postData) {
-    const post = document.createElement("div");
-    post.classList.add("posts");
-    post.classList.add("post-card");
+    const posts = document.createElement("div");
+    posts.classList.add("posts");
+    posts.classList.add("posts-card");
   
     // Title
     const title = document.createElement("h2");
     title.innerText = postData.title;
-    post.appendChild(title);
+    posts.appendChild(title);
     title.classList.add("title");
   
     // Media (Image)
@@ -32,10 +32,10 @@ export function postTemplateB(postData) {
       // Set cursor style for image
       img.style.cursor = "pointer";
   
-      post.appendChild(img);
+      posts.appendChild(img);
     }
   
-    return post;
+    return posts;
   }
   
   // Function to navigate to the post specific page
@@ -50,7 +50,7 @@ export function postTemplateB(postData) {
     parent.append(postTemplateB(postData));
   }
   
-  export function renderPostTemplates(postDataList, parent) {
+  export function renderAllPostsTemplate(postDataList, parent) {
     if (!parent) {
       // Return without logging an error
       return;

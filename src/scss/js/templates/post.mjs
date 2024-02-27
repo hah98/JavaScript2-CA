@@ -2,45 +2,37 @@
 export function postTemplate(postData) {
   const post = document.createElement("div");
   post.classList.add("post");
-  post.classList.add("post-card-1");
+  post.classList.add("post-post");
 
   // Title
   const title = document.createElement("h1");
   title.innerText = postData.title;
   post.appendChild(title);
-  title.classList.add("title-1");
+  title.classList.add("title-post");
+
+  // Media (Single Image)
+  /*  if (postData.media && postData.media.url) {
+    const media = document.createElement("img");
+    media.src = postData.media.url;
+    media.alt = postData.media.alt || `Image for this post: ${postData.title}`;
+    post.appendChild(media);
+    img.classList.add("photo");
+  } */
+
+  // Media
+  if (postData.media) {
+    const img = document.createElement("img");
+    img.src = postData.media;
+    img.classList.add("img-fluid-1");
+    img.alt = `Image for this post: ${postData.title}`;
+    post.appendChild(img);
+  }
 
   // Body
   const body = document.createElement("h2");
   body.innerText = postData.body;
+  body.classList.add("body");
   post.appendChild(body);
-  body.classList.add("body-1");
-
-  // Media (Image)
-  if (postData.media && postData.media.url) {
-    const img = document.createElement("img");
-    img.src = postData.media.url;
-    img.alt = postData.media.alt || `Image for this post: ${postData.title}`;
-    img.classList.add("img-fluid-1");
-    post.appendChild(img);
-  }
-
-  // Media (Images)
-  if (
-    postData.media &&
-    Array.isArray(postData.media.urls) &&
-    postData.media.urls.length > 0
-  ) {
-    const mediaContainer = document.createElement("div");
-    postData.media.urls.forEach((mediaUrl) => {
-      const img = document.createElement("img");
-      img.src = mediaUrl;
-      img.alt = postData.media.alt || `Image for this post: ${postData.title}`;
-      img.classList.add("img-fluid-2");
-      mediaContainer.appendChild(img);
-    });
-    post.appendChild(mediaContainer);
-  }
 
   // Tags
   if (postData.tags && postData.tags.length > 0) {
@@ -65,15 +57,15 @@ export function postTemplate(postData) {
     post.appendChild(commentsContainer);
   }
 
-  // Additional information
+  // Created and Updated
   const created = document.createElement("p");
   created.innerText = `Created: ${new Date(postData.created).toLocaleString()}`;
-  created.classList.add("created-1");
+  created.classList.add("created");
   post.appendChild(created);
 
   const updated = document.createElement("p");
   updated.innerText = `Updated: ${new Date(postData.updated).toLocaleString()}`;
-  updated.classList.add("updated-1");
+  updated.classList.add("updated");
   post.appendChild(updated);
 
   // Reactions
@@ -90,7 +82,10 @@ export function postTemplate(postData) {
   // Author
   const authorContainer = document.createElement("div");
   const author = document.createElement("p");
-  author.innerText = `Author: ${postData.author.name}`;
+  author.classList.add("author");
+  author.innerText = `Author: ${
+    postData.author ? postData.author.name : "Unknown Author"
+  }`;
   authorContainer.appendChild(author);
   post.appendChild(authorContainer);
 
@@ -102,19 +97,14 @@ export function postTemplate(postData) {
 
   // Any other additional fields from your API can be added here
 
-
   return post;
 }
-  
 
-  
-
-/* // PostRenderer.js
-export function renderPostTemplate(postDataList, parent) {
+// PostRenderer.js
+export function renderSinglePostTemplate(postDataList, parent) {
   if (Array.isArray(postDataList)) {
     parent.append(...postDataList.map(postTemplate));
   } else {
     console.error("Post data is not an array:", postDataList);
   }
 }
- */
