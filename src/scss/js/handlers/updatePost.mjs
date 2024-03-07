@@ -1,6 +1,7 @@
 import { updatePost } from "../api/posts/index.mjs";
 import { getPost } from "./index.mjs";
 
+/* hahahhahahha */
 export async function setUpdateFormListener() {
   const form = document.querySelector("#editPost");
 
@@ -14,9 +15,8 @@ export async function setUpdateFormListener() {
     button.disabled = true;
 
     form.title.value = post.title;
-    form.description.value = post.description; 
-    form.endsAt.value = post.endsAt; 
-    form.tags.value = post.tags;
+    form.body.value = post.body;
+    form.tags.value = post.tags.join(", ");
     form.media.value = post.media;
 
     button.disabled = false;
