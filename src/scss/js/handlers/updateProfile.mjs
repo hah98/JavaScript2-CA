@@ -36,7 +36,6 @@ export async function setUpdateProfileFormListener() {
       profile.name = name;
       profile.email = email;
 
-     
       updateProfile(profile);
 
       /*   window.alert("Your Profile has been successfully updated!")

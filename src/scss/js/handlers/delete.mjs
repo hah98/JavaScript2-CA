@@ -28,7 +28,7 @@ export async function setRemoveFormListener() {
 
       // Confirmation before deleting
       const isConfirmed = confirm(
-        "Are you sure you want to delete this listing?"
+        "Are you sure you want to delete this post?"
       );
       if (!isConfirmed) {
         return;

@@ -16,12 +16,16 @@
   </head>
   <body style="background-color: rgb(240, 240, 240)">
     
-   <!--  <header>
-      <nav class="navbar navbar-expand-md navbar" style="background-color: blue;">
+   
+
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar"style="background-color: #cbd8fb;">
         <div class="container">
           <a href="/profile/posts/index.html">
-          <img src="../../Images/noroff_socials_logo-removebg-preview.png" width="180px" height="180px" alt="noroff socials logo">
-          </a>
+            <img src="../../Images/noroff_socials_logo-removebg-preview.png" class="logo" alt="noroff socials logo">
+            </a> 
+
           <button
             class="navbar-toggler"
             type="button"
@@ -35,110 +39,40 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="nav">
             <ul class="navbar-nav">
-
-            
               <li class="nav-item">
-                <a href="../post/create/index.html" class="nav-link text-light">Create new post</a>
-              </li>
+              
+                
+              
 
-              <li class="nav-item">
-                <a
-                  href="../../profile/edit/index.html"
-                  class="nav-link text-light"
-                  >Edit profile</a
-                >
-              </li>
-
-              <li class="nav-item">
-                <a href="../../profile/post/edit/index.html" class="nav-link text-light">Edit your Post</a>
-              </li>
-
-              <li class="nav-item">
-                <a href="../../profile/delete/index.html" class="nav-link text-light">Delete Post</a>
-              </li>
-
-             <form class="form-inline my- my-lg-0">
-                <input
-                  class="form-control mr-sm-2"
-                  type="text"
-                  placeholder="Search"
-                />
-                <button class="btn btn-light  my-1 my-sm-1" type="submit">Submit</button>
-  
-                  
+              <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  More Details
                 </button>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="/profile/edit/index.html">My Profile</a></li>
+                  <li><a class="dropdown-item" href="/profile/post/create/index.html">Create Post</a></li>
+                  <li><a class="dropdown-item" href="/profile/edit/editPost.html">Update Post</a></li>
+                  <li><a class="dropdown-item" href="/profile/delete/index.html">Delete Post</a></li>
+                  
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" id="logoutButton">Logout</a></li>
+                </ul>
+              </div>
+
+              <li class="nav-item">
+                  
+                <a href="/profile/post/create/index.html" class="nav-link" id="createPost1">
+                  <i class="fa-solid fa-plus"></i>
+                </a>
+            
+              </li>
+               
               </form> 
             </ul>
           </div>
         </div>
       </nav>
-      </header> -->
-
-
-      <header>
-        <nav class="navbar navbar-expand-md navbar"style="background-color: #cbd8fb;">
-          <div class="container">
-            <a href="/profile/posts/index.html">
-              <img src="../../Images/noroff_socials_logo-removebg-preview.png" class="logo" alt="noroff socials logo">
-              </a> 
-  
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#nav"
-              aria-controls="nav"
-              aria-expanded="true"
-              aria-label="toggle navigation"
-            >
-              <div class="navbar-toggler-icon"></div>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="nav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-  
-  
-  
-  
-                  <li class="nav-item">
-                    
-                    <a href="/profile/post/create/index.html" class="nav-link" id="createPost1">
-                      <i class="fa-solid fa-plus"></i>
-                    </a>
-                
-                  </li>
-                
-                  <!-- <li class="nav-item">
-                  
-                    <a href="./AuctionHouse/login/index.html" class="nav-link active" id="logOutLink">
-                      <h5> Log Out</h5>
-                    </a>
-                 
-                  </li> -->
-      
-                
-  
-                <div class="dropdown">
-                  <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Profile
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="/AuctionHouse/profile/edit.html">My Profile</a></li>
-                    <li><a class="dropdown-item" href="/AuctionHouse/profile/edit.html">Edit Avatar</a></li>
-                    <li><a class="dropdown-item" href="/AuctionHouse/listItem/index.html">Create Listing</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" id="logoutButton">Logout</a></li>
-                  </ul>
-                </div>
-  
-               
-                 
-                </form> 
-              </ul>
-            </div>
-          </div>
-        </nav>
-        </header>
+      </header>
     <main>
      
        

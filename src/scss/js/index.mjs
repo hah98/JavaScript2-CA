@@ -3,6 +3,7 @@ import * as templates from "./templates/index.mjs";
 import * as postsMethods from "./handlers/index.mjs";
 import * as postMethods from "./handlers/index.mjs";
 import { removePost } from "./api/posts/delete.mjs";
+import { updatePost } from "./api/posts/update.mjs";
 
 
 /* import * as templates from "./templates/index.mjs"; */
@@ -15,16 +16,13 @@ if (path === "/profile/register/index.html") {
   listeners.setLoginFormListener();
 } else if (path === "/profile/post/create/index.html") {
   listeners.setCreateFormListener();
-} else if (path === "/profile/post/edit/index.html") {
-  listeners.setUpdateFormListener();
 } else if (path === "/profile/edit/index.html") {
   listeners.setUpdateProfileFormListener();
 } else if (path === "/profile/edit/index.html") {
   listeners.setRemoveFormListener();
-}else if (path === "/profile/edit/index.html") {
+} else if (path === "/profile/edit/editPost.html") {
   listeners.setUpdateFormListener();
 }
-
 /* // testing function //
 async function testTemplate() {
   const posts = await postMethods.getPosts();
@@ -37,8 +35,70 @@ testTemplate(); */
 
 /* January 2024 new try */
 
+/* Logout */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutButton = document.getElementById("logoutButton");
+  const userDropdown = document.getElementById("userDropdown");
+  // Check if the logoutButton exists in the DOM
+  if (logoutButton) {
+    // Check if the user is logged in (profile stored in the localStorage)
+    const isLoggedIn = localStorage.getItem("profile") !== null;
+
+    if (isLoggedIn) {
+      // User is logged in, show the logout button and profile details
+      logoutButton.style.display = "block";
+
+    
+      // Show the entire dropdown bar
+      userDropdown.style.display = "block";
+    } else {
+      // User is not logged in, hide the logout button and profile details
+      logoutButton.style.display = "none";
+  
+      // Hide the entire dropdown bar when the user is not logged in
+      userDropdown.style.display = "none";
+    }
+
+    // User clicks logout button
+    logoutButton.addEventListener("click", () => {
+      // Assuming you have a listeners object with a logout method
+      if (listeners && typeof listeners.logout === "function") {
+        listeners.logout();
+      }
+    });
+  }
+});
+
+
+/*  */
+
+
 /* A single post */
 
+async function populateFormWithPostData(post, formId) {
+  const form = document.querySelector(formId);
+
+  if (!form) {
+    console.error(`Form with id ${formId} not found`);
+    return;
+  }
+
+  // Populate the form fields with post data
+  form.title.value = post.title || "";
+  form.body.value = post.body || "";
+  form.tags.value = post.tags ? post.tags.join(", ") : "";
+  form.media.value = post.media || "";
+
+  const button = form.querySelector("button");
+  button.disabled = false;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+  });
+}
+
+// Now define the onePostTemplate function
 async function onePostTemplate() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
@@ -60,37 +120,39 @@ async function onePostTemplate() {
     const postContainer = document.querySelector("#post");
     templates.renderSinglePostTemplate([post], postContainer);
 
-    // Populate the form fields with post data
-    const form = document.querySelector("#removePost");
-    form.title.value = post.title || "";
-    form.body.value = post.body || "";
-    form.tags.value = post.tags ? post.tags.join(", ") : "";
-    form.media.value = post.media || "";
+    // Populate the remove post form 
+    const removePostForm = document.querySelector("#removePost");
+    if (removePostForm) {
+      await populateFormWithPostData(post, "#removePost", async (post) => {
+        // Remove the post
+        await removePost(post.id);
 
-    const button = form.querySelector("button");
-    button.disabled = false;
+        // Redirect to the main page after successful deletion
+        window.location.href = "/profile/posts/index.html";
+      });
+    }
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    // Populate the update post form 
+    const updatePostForm = document.querySelector("#updatePost");
+    if (updatePostForm) {
+      await populateFormWithPostData(post, "#updatePost", async (post) => {
+        // Update the post
+        await updatePost(post); 
 
-      // Confirmation before deleting
-      const isConfirmed = confirm("Are you sure you want to delete this post?");
-      if (!isConfirmed) {
-        return;
-      }
-
-      // Remove the post
-      await removePost(id);
-
-      // Redirect to the main page after successful deletion
-      window.location.href = "/profile/posts/index.html";
-    });
+        // Redirect to main page after succesful update
+         window.location.href = "/profile/posts/index.html"; 
+      });
+    }
   } catch (error) {
-    /* console.error("Error Post or rendering post:", error); */
+    console.error("Error fetching or rendering post:", error);
   }
 }
 
-onePostTemplate();
+// Add this line to ensure the form listeners are set after the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  onePostTemplate();
+});
+
 
 /* All posts */
 
