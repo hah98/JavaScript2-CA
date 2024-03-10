@@ -162,3 +162,12 @@ async function allPostsTemplate() {
 }
 
 allPostsTemplate();
+
+
+async function profilePostTemplate() {
+  const posts = await postsMethods.getPosts();
+  const container = document.querySelector("#profilePosts");
+  templates.renderProfilePostTemplate(posts, container);
+}
+
+profilePostTemplate();

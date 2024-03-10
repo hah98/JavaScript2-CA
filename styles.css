@@ -7,3 +7,39 @@
     border-radius: 50%;
 }
   
+/* Styles for posts by profiles */
+
+#profilePosts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusted for responsiveness */
+    gap: 20px; /* Adjusted for better spacing */
+    padding: 1em;
+    justify-content: center;
+    max-width: 1200px; /* Adjusted max-width for better readability */
+    margin: 0 auto; /* Center the posts horizontally */
+  }
+  
+  .profilePosts-card {
+    background-color: #cbd8fb;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    width: 100%; /* Make each card take full width */
+  }
+  
+  .profilePosts-card:hover {
+    transform: scale(1.05);
+  }
+  
+  img.img-fluid {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .title {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
