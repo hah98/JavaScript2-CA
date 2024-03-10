@@ -37,7 +37,7 @@ export async function setRemoveFormListener() {
       await removePost(id);
 
       // Redirect to the main page
-      window.location.href = "/index.html";
+      window.location.href = "/profile/posts/index.html";
     });
   }
 }

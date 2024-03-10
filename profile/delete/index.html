@@ -17,59 +17,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body style="background-color: rgb(240, 240, 240)">
-    <!-- test navbar -->
-
-    <!-- <header>
-      <nav class="navbar navbar-expand-md navbar" style="background-color: blue;">
-        <div class="container">
-          <a href="../../posts/index.html">
-          <img src="../../../Images/noroff_socials_logo-removebg-preview.png" width="180px" height="180px" alt="noroff socials logo">
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#nav"
-            aria-controls="nav"
-            aria-expanded="true"
-            aria-label="toggle navigation"
-          >
-            <div class="navbar-toggler-icon"></div>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="nav">
-            <ul class="navbar-nav">
-
-              <li class="nav-item">
-                <a href="../../../profile/posts/index.html" class="nav-link text-light">View Posts</a>
-              </li>
-
-            
-             
-
-              <li class="nav-item">
-                <a
-                  href="../../edit/index.html"
-                  class="nav-link text-light"
-                  >Edit profile</a
-                >
-              </li>
-             <form class="form-inline my- my-lg-0">
-                <input
-                  class="form-control mr-sm-2"
-                  type="text"
-                  placeholder="Search"
-                />
-                <button class="btn btn-light  my-1 my-sm-1" type="submit">Submit</button>
-  
-                  
-                </button>
-              </form> 
-            </ul>
-          </div>
-        </div>
-      </nav>
-      </header> -->
-   
       <header>
         <nav class="navbar navbar-expand-md navbar"style="background-color: #cbd8fb;">
           <div class="container">
@@ -103,7 +50,8 @@
                     <li><a class="dropdown-item" href="/profile/posts/index.html">Home</a></li>
                     <li><a class="dropdown-item" href="/profile/edit/index.html">My Profile</a></li>
                     <li><a class="dropdown-item" href="/profile/post/create/index.html">Create Post</a></li>
-                    <li><a class="dropdown-item" href="/profile/edit/index.html">Update Listing</a></li>
+                    <li><a class="dropdown-item" href="/profile/edit/editPost.html">Update Post</a></li>
+                    <li><a class="dropdown-item" href="/profile/delete/index.html">Delete Post</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" id="logoutButton">Logout</a></li>
                   </ul>
@@ -132,38 +80,36 @@
                 <h4 class="text-center mt-1"> See full post under form</h4>
                 <p class="text-center mt-1"> Add (?id=yourpostidnumber) at the end url to find your post</p>
     
-                  <form id="removePost" style="margin-bottom: 30px;" class="mt-auto">
-                    <!-- Your form content here -->
-                    <div class="form-group mb-3">
-                      <label for="">Title</label>
-                      <input class="form-control" type="text" name="title" required />
-                    </div>
-        
-                    <div class="form-group mb-3">
-                      <label for="">Body</label>
-                      <textarea class="form-control" name="body" required></textarea>
-                    </div>
-        
-                    <div class="form-group mb-3">
-                      <label for="">Tags</label>
-                      <input class="form-control" type="text" name="tags" />
-                    </div>
-        
-                    <div class="form-group mb-3">
-                      <label for="">Media</label>
-                      <textarea class="form-control" type="url" name="media"></textarea>
-                    </div>
-        
-                     <!-- Delete Post button -->
-                     <button class="btn text-light" style="background-color: blue">Delete Post</button>
-
-                    <div class="d-flex flex-column align-items-center">
-                      <!-- Display single post details here -->
-                      <div id="post" class="mb-3"></div>
-
-
-                   
-                  </form>
+                <form id="removePost" style="margin-bottom: 30px;" class="mt-auto">
+              
+                  <div class="form-group mb-3">
+                    <label for="">Title</label>
+                    <input class="form-control" type="text" name="title" required />
+                  </div>
+      
+                  <div class="form-group mb-3">
+                    <label for="">Body</label>
+                    <textarea class="form-control" name="body" required></textarea>
+                  </div>
+      
+                  <div class="form-group mb-3">
+                    <label for="">Tags</label>
+                    <input class="form-control" type="text" name="tags" />
+                  </div>
+      
+                  <div class="form-group mb-3">
+                    <label for="">Media</label>
+                    <textarea class="form-control" type="url" name="media"></textarea>
+                  </div>
+      
+                   <!-- Update Post button -->
+                   <button class="btn text-light" style="background-color: blue">Delete Post</button>
+    
+                  <div class="d-flex flex-column align-items-center">
+                    <!-- Display single post details here -->
+                    <div id="post" class="mb-3"></div>
+                 
+                </form>
                 </div>
               </div>
             </div>

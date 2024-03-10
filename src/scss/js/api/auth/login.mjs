@@ -26,8 +26,20 @@ export async function login(profile) {
 
   storage.save("profile", user);
 
-  alert("You are now Logged In");
+ 
+      // Trigger the modal
+      const customAlertModal = new bootstrap.Modal(
+        document.getElementById("customAlert")
+      );
+      customAlertModal.show();
 
-  // Redirect to the /profile/posts/index.html page
-  window.location.href = "/profile/posts/index.html";
+      // Handle the modal's hidden.bs.modal event
+      customAlertModal._element.addEventListener(
+        "hidden.bs.modal",
+        function () {
+          // Redirect to post page after the modal is hidden
+          window.location.href = "/profile/posts/index.html";
+        })
+
+
 }

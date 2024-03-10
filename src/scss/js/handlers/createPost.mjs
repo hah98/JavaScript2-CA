@@ -27,7 +27,7 @@ export function setCreateFormListener() {
       customAlertModal._element.addEventListener(
         "hidden.bs.modal",
         function () {
-          // Redirect to the /profile/posts/index.html page after the modal is hidden
+          // Redirect to post page after the modal is hidden
           window.location.href = "/profile/posts/index.html";
         }
       );

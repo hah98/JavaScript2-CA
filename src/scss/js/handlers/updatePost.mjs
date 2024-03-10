@@ -35,23 +35,22 @@ export async function setUpdateFormListener() {
           form.tags.value = Array.isArray(post.tags) ? post.tags.join(", ") : "";
           form.media.value = post.media || "";
          
-
- // Confirmation before updating
- const isConfirmed = confirm(
-  "Are you sure you want to update this post?"
-);
-if (!isConfirmed) {
-  return;
-}
-
-
           // Send it to the API
           await updatePost(post);  
-          
-          // Redirect after successful update
-        window.location.href = "/profile/posts/index.html";
-  });
+ // Trigger the modal
+ const customAlertModal = new bootstrap.Modal(
+  document.getElementById("customAlert")
+);
+customAlertModal.show();
 
 
+customAlertModal._element.addEventListener(
+  "hidden.bs.modal",
+  function () {
+    // Redirect to the post page after the modal is hidden
+    window.location.href = "/profile/posts/index.html";
+  }
+);
+});
 }
 }

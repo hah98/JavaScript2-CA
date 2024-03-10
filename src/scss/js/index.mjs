@@ -18,7 +18,7 @@ if (path === "/profile/register/index.html") {
   listeners.setCreateFormListener();
 } else if (path === "/profile/edit/index.html") {
   listeners.setUpdateProfileFormListener();
-} else if (path === "/profile/edit/index.html") {
+} else if (path === "/profile/delete/index.html") {
   listeners.setRemoveFormListener();
 } else if (path === "/profile/edit/editPost.html") {
   listeners.setUpdateFormListener();
@@ -148,7 +148,6 @@ async function onePostTemplate() {
   }
 }
 
-// Add this line to ensure the form listeners are set after the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   onePostTemplate();
 });
