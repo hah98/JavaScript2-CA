@@ -1,4 +1,4 @@
-/* import { API_SOCIAL_URL } from "../constants.mjs";
+import { API_SOCIAL_URL } from "../constants.mjs";
 
 import { authFetch } from "../authFetch.mjs";
 
@@ -11,4 +11,4 @@ export async function getProfiles(name) {
   const response = await authFetch(getProfilesUrl);
 
   return await response.json();
-} */
+}

@@ -39,7 +39,6 @@ export function postTemplate(postData) {
   }
 
  
-
   // Created and Updated
   const created = document.createElement("p");
   created.innerText = `Created: ${new Date(postData.created).toLocaleString()}`;
