@@ -15,7 +15,20 @@ export async function register(profile) {
     body,
   });
 
-  const result = await response.json();
-  alert("Congrats, you are now registered");
-  return result;
+ 
+      // Trigger the modal
+      const customAlertModal = new bootstrap.Modal(
+        document.getElementById("customAlert")
+      );
+      customAlertModal.show();
+
+      customAlertModal._element.addEventListener(
+        "hidden.bs.modal",
+        function () {
+          // Redirect to post page after the modal is hidden
+          window.location.href = "/profile/login/index.html";
+        })
+
+
 }
+

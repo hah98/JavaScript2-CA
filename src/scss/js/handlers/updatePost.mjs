@@ -1,35 +1,56 @@
- import { updatePost, getPost } from "../api/posts/index.mjs";
+import { updatePost } from "../api/posts/index.mjs";
+import { getPost } from "./index.mjs";
 
 export async function setUpdateFormListener() {
-  const form = document.querySelector("#editPost");
+    const form = document.querySelector("#updatePost");
+  
+    const url = new URL(location.href);
+    const id = url.searchParams.get("id");
 
-  const url = new URL(location.href);
-  const id = url.searchParams.get("id");
+    if (form) {
+        const post = await getPost(id);
 
-  if (form) {
-    const button = form.querySelector("button");
-    button.disabled = true;
+        if (!post) {
+          console.error("Post data not found");
+          return;
+        }
 
-    const post = await getPost(id);
+        form.title.value = post.title;
+        form.body.value = post.body;
+        form.tags.value = post.tags.join(", ");
+        form.media.value = post.media;
 
-    form.title.value = post.title;
-    form.body.value = post.body;
-    form.tags.value = post.tags;
-    form.media.value = post.media;
+        const button = form.querySelector("button");
+        button.disabled = false;
 
-    button.disabled = false;
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const form = event.target;
+          const formData = new FormData(form);
+          const post = Object.fromEntries(formData.entries());
+          post.id = id;
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
+          form.title.value = post.title || "";
+          form.body.value = post.body || "";
+          form.tags.value = Array.isArray(post.tags) ? post.tags.join(", ") : "";
+          form.media.value = post.media || "";
+         
+          // Send it to the API
+          await updatePost(post);  
+ // Trigger the modal
+ const customAlertModal = new bootstrap.Modal(
+  document.getElementById("customAlert")
+);
+customAlertModal.show();
 
-      const form = event.target;
-      const formData = new FormData(form);
-      const post = Object.fromEntries(formData.entries());
-      post.id = id;
 
-      post.tags = post.tags.split(",").map((tag) => tag.trim());
-      // Send it to the API
-      updatePost(post);
-    });
+customAlertModal._element.addEventListener(
+  "hidden.bs.modal",
+  function () {
+    // Redirect to the post page after the modal is hidden
+    window.location.href = "/profile/posts/index.html";
   }
+);
+});
+}
 }

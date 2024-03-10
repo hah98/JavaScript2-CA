@@ -10,11 +10,22 @@ export async function updatePost(postData) {
     throw new Error("You need postID to update");
   }
 
+ 
+  const payload = {
+    title: postData.title,
+    body: postData.body,
+    tags: Array.isArray(postData.tags) ? postData.tags : [],
+    media: postData.media,
+  };
+
   const updatePostUrl = `${API_SOCIAL_URL}${action}/${postData.id}`;
 
   const response = await authFetch(updatePostUrl, {
     method,
-    body: JSON.stringify(postData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
   });
 
   return await response.json();

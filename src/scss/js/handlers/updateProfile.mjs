@@ -1,30 +1,31 @@
 import { updateProfile, getProfile } from "../api/profiles/index.mjs";
-
 import { load } from "../storage/index.mjs";
 
+/* hahahahhaa */
 export async function setUpdateProfileFormListener() {
   const form = document.querySelector("#editProfile");
+  const avatarPreview = document.getElementById("avatarPreview");
 
-  /* const url = new URL(location.href);
-  const id = url.searchParams.get("id"); */
-
-  /*  profile.name; */
-
-  if (form) {
+  if (form  && avatarPreview) {
     const { name, email } = load("profile");
+
     form.name.value = name;
     form.email.value = email;
+   /*  form.avatar.value = avatar; */
 
     const button = form.querySelector("button");
     button.disabled = true;
 
     const profile = await getProfile(name);
 
-    form.banner.value = profile.banner;
-    form.Avatar.value = profile.Avatar;
+    form.avatar.value = profile.avatar;
+
+    // Update the avatarPreview src
+    avatarPreview.src = profile.avatar;
 
     button.disabled = false;
 
+    
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -35,9 +36,18 @@ export async function setUpdateProfileFormListener() {
       profile.name = name;
       profile.email = email;
 
-      /* profile.tags = profile.tags.split(",").map((tag) => tag.trim()); */
-      // Send it to the API
       updateProfile(profile);
+
+      /*   window.alert("Your Profile has been successfully updated!")
+
+      // Redirect to the /profile/posts/index.html page
+      window.location.href = "/profile/posts/index.html"; */
+
+      // Trigger the modal
+      const customAlertModal = new bootstrap.Modal(
+        document.getElementById("customAlert")
+      );
+      customAlertModal.show();
     });
   }
 }

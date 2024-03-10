@@ -1,18 +1,17 @@
 import { API_SOCIAL_URL } from "../constants.mjs";
-
 import { authFetch } from "../authFetch.mjs";
 
-const action = "/profile/";
+const action = "/profiles";
 const method = "put";
 
 export async function updateProfile(profileData) {
   if (!profileData.name) {
-    throw new Error("You need postID to update");
+    throw new Error("Update of profile requires name");
   }
 
-  const updateProfileUrl = `${API_SOCIAL_URL}${action}${profileData.name}/media`;
+  const updateProfileURL = `${API_SOCIAL_URL}${action}/${profileData.name}/media`;
 
-  const response = await authFetch(updateProfileUrl, {
+  const response = await authFetch(updateProfileURL, {
     method,
     body: JSON.stringify(profileData),
   });

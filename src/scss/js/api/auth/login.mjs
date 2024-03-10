@@ -18,16 +18,25 @@ export async function login(profile) {
 
   const { accessToken, ...user } = await response.json();
 
-  /*  localStorage.setItem("token", accessToken);
-  localStorage.setItem("profile", user); */
 
   storage.save("token", accessToken);
 
 
   storage.save("profile", user);
 
-  alert("You are now Logged In");
+ 
+      // Trigger the modal
+      const customAlertModal = new bootstrap.Modal(
+        document.getElementById("customAlert")
+      );
+      customAlertModal.show();
 
-  // Redirect to the /profile/posts/index.html page
-  window.location.href = "/profile/posts/index.html";
+      customAlertModal._element.addEventListener(
+        "hidden.bs.modal",
+        function () {
+          // Redirect to post page after the modal is hidden
+          window.location.href = "/profile/posts/index.html";
+        })
+
+
 }

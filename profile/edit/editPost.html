@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff Socials / Posts</title>
+    <title>Noroff Socials / Update Post Page</title>
+   <!--  <script type="module" src="../../../src/scss/js/index.mjs"></script> -->
     <script type="module" src="../../src/scss/js/index.mjs"></script>
-    <link rel="stylesheet" href="../../dist/css/styles.css">
+   <!--  <link rel="stylesheet" href="../../../dist/css/styles.css" /> -->
+    <link rel="stylesheet" href="../../dist/css/styles.css" />
+
     <script src="https://kit.fontawesome.com/cccc11b77d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <!-- Google font -->
@@ -15,14 +18,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body style="background-color: rgb(240, 240, 240)">
-    
   
-
       <header>
         <nav class="navbar navbar-expand-md navbar"style="background-color: #cbd8fb;">
           <div class="container">
             <a href="/profile/posts/index.html">
-              <img src="../../Images/noroff_socials_logo-removebg-preview.png" class="logo" alt="noroff socials logo">
+              <img src="../../../Images/noroff_socials_logo-removebg-preview.png" class="logo" alt="noroff socials logo">
               </a> 
   
             <button
@@ -48,11 +49,10 @@
                     More Details
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="/profile/posts/index.html">Home</a></li>
                     <li><a class="dropdown-item" href="/profile/edit/index.html">My Profile</a></li>
                     <li><a class="dropdown-item" href="/profile/post/create/index.html">Create Post</a></li>
-                    <li><a class="dropdown-item" href="/profile/edit/editPost.html">Update Post</a></li>
                     <li><a class="dropdown-item" href="/profile/delete/index.html">Delete Post</a></li>
-                    
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" id="logoutButton">Logout</a></li>
                   </ul>
@@ -72,38 +72,74 @@
           </div>
         </nav>
         </header>
+   <!--  -->
+   <main class="flex-grow-1">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <h1 class="text-center mt-5">UPDATE POST</h1>
+          <h4 class="text-center mt-1"> See full post under form</h4>
+          <p class="text-center mt-1"> Add (?id=yourpostidnumber) at the end url to find your post</p>
 
-    <main class="flex-grow-1">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-10 col-md-12">
-            
-            <h1 class="text-center mt-5" style="margin-bottom: 50px;">NOROFF COMMUNITY POSTS</h1>
+            <form id="updatePost" style="margin-bottom: 30px;" class="mt-auto">
+              
+              <div class="form-group mb-3">
+                <label for="">Title</label>
+                <input class="form-control" type="text" name="title" required />
+              </div>
+  
+              <div class="form-group mb-3">
+                <label for="">Body</label>
+                <textarea class="form-control" name="body" required></textarea>
+              </div>
+  
+              <div class="form-group mb-3">
+                <label for="">Tags</label>
+                <input class="form-control" type="text" name="tags" />
+              </div>
+  
+              <div class="form-group mb-3">
+                <label for="">Media</label>
+                <textarea class="form-control" type="url" name="media"></textarea>
+              </div>
+  
+               <!-- Update Post button -->
+               <button class="btn text-light" style="background-color: blue">Update Post</button>
 
-           <!-- SEARCH  -->
-           <div>
-            <form id="searchForm">
-              <input type="text" id="searchInput" placeholder="Search posts...">
-              <button type="submit" id="searchButton">Search</button>
+              <div class="d-flex flex-column align-items-center">
+                <!-- Display single post details here -->
+                <div id="post" class="mb-3"></div>
+
+             
             </form>
-            <div id="postsContainer"></div>
-          </div>
-          
-          <div id="searchResults"></div>
-
-
-            <!-- Blog Post Cards (Use JavaScript to populate) -->
-            <div  id="posts">
-              <!-- Here are all the posts -->
-            </div>
-
-            
-           
-
           </div>
         </div>
       </div>
-    </main>
+    </div>
+
+<!-- Alert message after successful updated post :) -->
+
+<!-- Modal -->
+<div class="modal fade" id="customAlert" tabindex="-1" aria-labelledby="customAlertLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customAlertLabel">Noroff Socials: Post Created</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Post has been updated successfully!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ </main>
     <footer class="text-center text-lg-start text-muted" style="background-color: #CBD8FB;">
       <!-- Grid container -->
       <div class="container p-4">
@@ -144,5 +180,6 @@
       </div>
       <!-- Copyright -->
     </footer>
+
   </body>
 </html>
