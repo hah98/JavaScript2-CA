@@ -10,7 +10,7 @@ export async function updatePost(postData) {
     throw new Error("You need postID to update");
   }
 
-  // Ensure that postData.tags is an array, or set it to an empty array if not present
+ 
   const payload = {
     title: postData.title,
     body: postData.body,

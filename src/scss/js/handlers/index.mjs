@@ -7,3 +7,4 @@ export * from "./viewAllposts.mjs";
 export * from "./viewOnePost.mjs";
 export * from "./delete.mjs";
 export * from "./logOut.mjs";
+export * from "./searchPosts.mjs";

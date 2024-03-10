@@ -10,14 +10,6 @@ export function postTemplate(postData) {
   post.appendChild(title);
   title.classList.add("title-post");
 
-  // Media (Single Image)
-  /*  if (postData.media && postData.media.url) {
-    const media = document.createElement("img");
-    media.src = postData.media.url;
-    media.alt = postData.media.alt || `Image for this post: ${postData.title}`;
-    post.appendChild(media);
-    img.classList.add("photo");
-  } */
 
   // Media
   if (postData.media) {
@@ -46,16 +38,7 @@ export function postTemplate(postData) {
     post.appendChild(tags);
   }
 
-  // Comments
-  if (postData.comments && postData.comments.length > 0) {
-    const commentsContainer = document.createElement("div");
-    postData.comments.forEach((comment) => {
-      const commentElement = document.createElement("div");
-      commentElement.innerText = `Comment by ${comment.owner}: ${comment.body}`;
-      commentsContainer.appendChild(commentElement);
-    });
-    post.appendChild(commentsContainer);
-  }
+ 
 
   // Created and Updated
   const created = document.createElement("p");
@@ -67,18 +50,50 @@ export function postTemplate(postData) {
   updated.innerText = `Updated: ${new Date(postData.updated).toLocaleString()}`;
   updated.classList.add("updated");
   post.appendChild(updated);
+// Comments
+const commentsContainer = document.createElement("div");
+commentsContainer.classList.add("comments-container");
 
-  // Reactions
-  if (postData.reactions && postData.reactions.length > 0) {
-    const reactionsContainer = document.createElement("div");
-    postData.reactions.forEach((reaction) => {
-      const reactionElement = document.createElement("p");
-      reactionElement.innerText = `${reaction.symbol} - Count: ${reaction.count}`;
-      reactionsContainer.appendChild(reactionElement);
-    });
-    post.appendChild(reactionsContainer);
-  }
+if (postData.comments && postData.comments.length > 0) {
+  postData.comments.forEach((comment) => {
+    const commentElement = document.createElement("div");
+    commentElement.classList.add("comment");
+    commentElement.innerHTML = `
+      <p>Comment by ${comment.author ? comment.author.name : 'Unknown Author'}:</p>
+      <p>${comment.body}</p>
+    `;
+    commentsContainer.appendChild(commentElement);
+  });
+} else {
+  // when there are no comments
+  const noCommentsMessage = document.createElement("p");
+  noCommentsMessage.innerText = "Comments: 0";
+  commentsContainer.appendChild(noCommentsMessage);
+}
 
+post.appendChild(commentsContainer);
+
+// Reactions
+const reactionsContainer = document.createElement("div");
+reactionsContainer.classList.add("reactions-container");
+
+if (postData.reactions && postData.reactions.length > 0) {
+  postData.reactions.forEach((reaction) => {
+    const reactionElement = document.createElement("div");
+    reactionElement.classList.add("reaction");
+    reactionElement.innerHTML = `
+      <p>${reaction.symbol} - Count: ${reaction.count}</p>
+    `;
+    reactionsContainer.appendChild(reactionElement);
+  });
+} else {
+  // when there are no reactions
+  const noReactionsMessage = document.createElement("p");
+  noReactionsMessage.innerText = "Reactions: 0";
+  reactionsContainer.appendChild(noReactionsMessage);
+}
+
+post.appendChild(reactionsContainer);
   // Author
   const authorContainer = document.createElement("div");
   const author = document.createElement("p");
@@ -95,7 +110,20 @@ export function postTemplate(postData) {
   postId.classList.add("post-id");
   post.appendChild(postId);
 
-  // Any other additional fields from your API can be added here
+// Return Home Button
+const returnButton = document.createElement("button");
+returnButton.innerText = "Home";
+returnButton.classList.add("btn", "text-light");
+returnButton.style.backgroundColor = "blue";
+
+
+returnButton.addEventListener("click", () => {
+  // Redirect to the home page
+  window.location.href = "/profile/posts/index.html";
+});
+
+
+post.appendChild(returnButton);
 
   return post;
 }

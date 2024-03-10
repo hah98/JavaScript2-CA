@@ -43,3 +43,43 @@
     margin-bottom: 10px;
     font-size: 18px;
   }
+
+  /* Styling for comments on post specific page*/
+.comments-container {
+    margin-top: 10px;
+  }
+  
+  .comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .comment p {
+    margin: 5px 0;
+  }
+  
+  /* Styling for reactions */
+  .reactions-container {
+    margin-top: 10px;
+  }
+  
+  .reaction {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .reaction p {
+    margin: 5px 0;
+  }
+
+  .btn {
+   display: block;
+   justify-content: center;
+  }
+
+  .comments-container, .comment , .comment p, .reactions-container, .reaction, .reaction p, .btn {
+    text-align: center; /* Center the text */
+    margin: 0; /* Remove default margin */
+  }

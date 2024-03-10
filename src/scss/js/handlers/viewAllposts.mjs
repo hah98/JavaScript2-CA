@@ -9,17 +9,5 @@ export async function getPosts() {
   const response = await authFetch(getPostsUrl);
 
   return await response.json();
-}
+} 
 
-
-/*  Moved to spereate file called viewOnePost.mjs  */
-/* export async function getPost(id) {
-    if (!id) {
-      throw new Error("You need postID to GET");
-    }
-    const getPostUrl = `${API_SOCIAL_URL}${action}/${id}`;
-  
-    const response = await authFetch(getPostUrl);
-  
-    return await response.json();
-  } */

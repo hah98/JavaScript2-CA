@@ -12,7 +12,6 @@ export function setCreateFormListener() {
       const post = Object.fromEntries(formData.entries());
 
       post.tags = post.tags.split(",").map((tag) => tag.trim());
-      /* console.log(profile); */
 
       // Send it to the API
       createPost(post);
@@ -23,7 +22,6 @@ export function setCreateFormListener() {
       );
       customAlertModal.show();
 
-      // Handle the modal's hidden.bs.modal event
       customAlertModal._element.addEventListener(
         "hidden.bs.modal",
         function () {

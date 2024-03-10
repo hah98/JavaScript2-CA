@@ -3,7 +3,7 @@ export function postTemplateB(postData) {
     const posts = document.createElement("div");
     posts.classList.add("posts");
     posts.classList.add("posts-card");
-  
+   
     // Title
     const title = document.createElement("h2");
     title.innerText = postData.title;
@@ -17,7 +17,7 @@ export function postTemplateB(postData) {
       img.classList.add("img-fluid");
       img.alt = `Image for this post: ${postData.title}`;
   
-      // Navigate to the listing page on image click
+      // Navigate to the post page on image click
       title.addEventListener("click", () => {
         navigateToPostPage(postData.id);
       });
@@ -49,10 +49,10 @@ export function postTemplateB(postData) {
   export function renderPostTemplate(postData, parent) {
     parent.append(postTemplateB(postData));
   }
-  
+ 
   export function renderAllPostsTemplate(postDataList, parent) {
     if (!parent) {
-      // Return without logging an error
+     /// if error 
       return;
     }
   
@@ -61,8 +61,61 @@ export function postTemplateB(postData) {
       return post.media && post.media.length > 0 && post.title;
     });
   
-    parent.innerHTML = ''; // Clear the parent container before appending posts
+    parent.innerHTML = ''; 
   
     parent.append(...filteredPosts.map(postTemplateB));
   }
   
+
+  ///////
+
+
+  // Function to create a template for search results
+export function searchResultTemplate(postData) {
+  const result = document.createElement("div");
+  result.classList.add("search-result");
+
+  // Title
+  const title = document.createElement("h2");
+  title.innerText = postData.title;
+  result.appendChild(title);
+  title.classList.add("title");
+
+  // Media (Image)
+  if (postData.media) {
+    const img = document.createElement("img");
+    img.src = postData.media;
+    img.classList.add("img-fluid");
+    img.alt = `Image for this search result: ${postData.title}`;
+
+    // Navigate to the post page on image click
+    title.addEventListener("click", () => {
+      navigateToPostPage(postData.id);
+    });
+
+    // Set cursor style for title
+    title.style.cursor = "pointer";
+
+    img.addEventListener("click", () => {
+      navigateToPostPage(postData.id);
+    });
+
+    // Set cursor style for image
+    img.style.cursor = "pointer";
+
+    result.appendChild(img);
+  }
+
+  return result;
+}
+
+// Function to render search results template
+export function renderSearchResultsTemplate (postDataList, parent) {
+  if (!parent) {
+    console.error("Parent element not found");
+    return;
+  }
+
+  parent.innerHTML = '';
+  parent.append(...postDataList.map(searchResultTemplate));
+}

@@ -22,7 +22,6 @@ export async function register(profile) {
       );
       customAlertModal.show();
 
-      // Handle the modal's hidden.bs.modal event
       customAlertModal._element.addEventListener(
         "hidden.bs.modal",
         function () {

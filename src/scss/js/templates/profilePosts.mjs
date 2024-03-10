@@ -41,11 +41,10 @@ export function profilePostTemplate(postData) {
   
   export function renderProfilePostTemplate(postDataList, parent) {
     if (!parent) {
-      // Return without logging an error
+      // If error
       return;
     }
   
-    // Clear the parent container before appending posts
     parent.innerHTML = '';
   
     // Append the profile posts to the container

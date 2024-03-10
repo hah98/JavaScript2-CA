@@ -4,9 +4,10 @@ import * as postsMethods from "./handlers/index.mjs";
 import * as postMethods from "./handlers/index.mjs";
 import { removePost } from "./api/posts/delete.mjs";
 import { updatePost } from "./api/posts/update.mjs";
+/* import { setSearchFormListener } from "./api/posts/index.mjs"; */
 
 
-/* import * as templates from "./templates/index.mjs"; */
+
 
 const path = location.pathname;
 
@@ -23,17 +24,6 @@ if (path === "/profile/register/index.html") {
 } else if (path === "/profile/edit/editPost.html") {
   listeners.setUpdateFormListener();
 }
-/* // testing function //
-async function testTemplate() {
-  const posts = await postMethods.getPosts();
-  const post = posts[5]; 
-  const container = document.querySelector("#posts");
-  templates.renderPostTemplates(posts, container);
-}
-
-testTemplate(); */
-
-/* January 2024 new try */
 
 /* Logout */
 
@@ -71,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/*  */
 
 
 /* A single post */
@@ -98,7 +87,6 @@ async function populateFormWithPostData(post, formId) {
   });
 }
 
-// Now define the onePostTemplate function
 async function onePostTemplate() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
@@ -171,3 +159,30 @@ async function profilePostTemplate() {
 }
 
 profilePostTemplate();
+
+export function setSearchFormListener() {
+  console.log('Search form listener is triggered.');
+  const form = document.querySelector("#searchForm");
+
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      console.log("Form submitted");
+
+      const formData = new FormData(form);
+      const query = formData.get('searchInput').trim(); 
+
+      try {
+        if (query) {
+          const posts = await searchPosts(query);
+          
+          console.log(posts);
+        } else {
+          
+        }
+      } catch (error) {
+       
+      }
+    });
+  }
+}

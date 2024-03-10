@@ -7,7 +7,7 @@ export async function setUpdateProfileFormListener() {
   const avatarPreview = document.getElementById("avatarPreview");
 
   if (form  && avatarPreview) {
-    const { name, email/*  avatar */ } = load("profile");
+    const { name, email } = load("profile");
 
     form.name.value = name;
     form.email.value = email;

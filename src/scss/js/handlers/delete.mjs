@@ -21,23 +21,22 @@ export async function setRemoveFormListener() {
     form.media.value = post.media;
 
     const button = form.querySelector("button");
-    button.disabled = false;
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      // Confirmation before deleting
-      const isConfirmed = confirm(
-        "Are you sure you want to delete this post?"
-      );
-      if (!isConfirmed) {
-        return;
-      }
-
+    button.addEventListener("click", async () => {
       await removePost(id);
 
-      // Redirect to the main page
-      window.location.href = "/profile/posts/index.html";
+      // Trigger the modal
+      const customAlertModal = new bootstrap.Modal(
+        document.getElementById("customAlert")
+      );
+      customAlertModal.show();
+
+      customAlertModal._element.addEventListener(
+        "hidden.bs.modal",
+        function () {
+          // Redirect to the post page after the modal is hidden
+          window.location.href = "/profile/posts/index.html";
+        }
+      );
     });
   }
 }

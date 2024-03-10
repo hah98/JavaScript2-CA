@@ -18,8 +18,6 @@ export async function login(profile) {
 
   const { accessToken, ...user } = await response.json();
 
-  /*  localStorage.setItem("token", accessToken);
-  localStorage.setItem("profile", user); */
 
   storage.save("token", accessToken);
 
@@ -33,7 +31,6 @@ export async function login(profile) {
       );
       customAlertModal.show();
 
-      // Handle the modal's hidden.bs.modal event
       customAlertModal._element.addEventListener(
         "hidden.bs.modal",
         function () {
