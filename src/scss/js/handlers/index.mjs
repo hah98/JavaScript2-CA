@@ -6,4 +6,4 @@ export * from "./updateProfile.mjs";
 export * from "./viewAllposts.mjs";
 export * from "./viewOnePost.mjs";
 export * from "./delete.mjs";
-export * from "./logout.mjs";
+export * from "./logOut.mjs";
